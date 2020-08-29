@@ -1,5 +1,21 @@
-var getUserRepos = function() {
-    fetch("https://api.github.com/users/octocat/repos")        
-}
+var getUserRepos = function(user) {
+    //this is testing whether we can access the API
+    // fetch("https://api.github.com/users/octocat/repos").then(function(response){
+    //     response.json().then(function (data) {
+    //         console.log(data);
+    //       })
+    // })
+    //now we generalize, so we can get all instead of hardcoding one value 
+
+    //format the github api url
+    var apiUrl = "https://api.github.com/users/" + user + "/repos";
+
+    //make a request to the url
+    fetch(apiUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+        });
+    });
+};
 
 getUserRepos();
